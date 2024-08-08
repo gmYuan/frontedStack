@@ -11779,89 +11779,6 @@ function genPropsAccessExp(name) {
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/dist/exportHelper.js":
-/*!******************************************************!*\
-  !*** ./node_modules/vue-loader/dist/exportHelper.js ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-// runtime helper for setting properties on components
-// in a tree-shakable way
-exports["default"] = (sfc, props) => {
-    const target = sfc.__vccOpts || sfc;
-    for (const [key, val] of props) {
-        target[key] = val;
-    }
-    return target;
-};
-
-
-/***/ }),
-
-/***/ "./src/App.vue":
-/*!*********************!*\
-  !*** ./src/App.vue ***!
-  \*********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue?vue&type=script&lang=js */ "./src/App.vue?vue&type=script&lang=js");
-/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
-/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]
-/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
-/* harmony import */ var _Users_ygm_Documents_learn_frontedStack_Q1_1_vue_loader_02_code_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
-
-
-
-;
-const __exports__ = /*#__PURE__*/(0,_Users_ygm_Documents_learn_frontedStack_Q1_1_vue_loader_02_code_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(_App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"], [['__file',"src/App.vue"]])
-/* hot reload */
-if (false) {}
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[2].use[0]!./src/App.vue?vue&type=script&lang=js":
-/*!*****************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[2].use[0]!./src/App.vue?vue&type=script&lang=js ***!
-  \*****************************************************************************************************************/
-/***/ (() => {
-
-
-console.log('App');
-
-
-/***/ }),
-
-/***/ "./src/App.vue?vue&type=script&lang=js":
-/*!*********************************************!*\
-  !*** ./src/App.vue?vue&type=script&lang=js ***!
-  \*********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport default from dynamic */ _node_modules_vue_loader_dist_index_js_ruleSet_1_rules_2_use_0_App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0___default.a)
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_dist_index_js_ruleSet_1_rules_2_use_0_App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../node_modules/vue-loader/dist/index.js??ruleSet[1].rules[2].use[0]!./App.vue?vue&type=script&lang=js */ "./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[2].use[0]!./src/App.vue?vue&type=script&lang=js");
-/* harmony import */ var _node_modules_vue_loader_dist_index_js_ruleSet_1_rules_2_use_0_App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_loader_dist_index_js_ruleSet_1_rules_2_use_0_App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
-/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _node_modules_vue_loader_dist_index_js_ruleSet_1_rules_2_use_0_App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _node_modules_vue_loader_dist_index_js_ruleSet_1_rules_2_use_0_App_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]
-/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
- 
-
-/***/ }),
-
 /***/ "./node_modules/vue/dist/vue.runtime.esm-bundler.js":
 /*!**********************************************************!*\
   !*** ./node_modules/vue/dist/vue.runtime.esm-bundler.js ***!
@@ -12043,6 +11960,16 @@ const compile = () => {
 
 
 
+/***/ }),
+
+/***/ "./src/App.vue":
+/*!*********************!*\
+  !*** ./src/App.vue ***!
+  \*********************/
+/***/ (() => {
+
+throw new Error("Module build failed: Error: Final loader (./vue-loader/index.js) didn't return a Buffer or String\n    at processResult (/Users/ygm/Documents/learn/frontedStack/Q1.1-vue-loader实现/02-code/node_modules/webpack/lib/NormalModule.js:774:17)\n    at /Users/ygm/Documents/learn/frontedStack/Q1.1-vue-loader实现/02-code/node_modules/webpack/lib/NormalModule.js:860:5\n    at /Users/ygm/Documents/learn/frontedStack/Q1.1-vue-loader实现/02-code/node_modules/loader-runner/lib/LoaderRunner.js:407:3\n    at iterateNormalLoaders (/Users/ygm/Documents/learn/frontedStack/Q1.1-vue-loader实现/02-code/node_modules/loader-runner/lib/LoaderRunner.js:233:10)\n    at iterateNormalLoaders (/Users/ygm/Documents/learn/frontedStack/Q1.1-vue-loader实现/02-code/node_modules/loader-runner/lib/LoaderRunner.js:240:10)\n    at /Users/ygm/Documents/learn/frontedStack/Q1.1-vue-loader实现/02-code/node_modules/loader-runner/lib/LoaderRunner.js:255:3\n    at runSyncOrAsync (/Users/ygm/Documents/learn/frontedStack/Q1.1-vue-loader实现/02-code/node_modules/loader-runner/lib/LoaderRunner.js:137:12)\n    at iterateNormalLoaders (/Users/ygm/Documents/learn/frontedStack/Q1.1-vue-loader实现/02-code/node_modules/loader-runner/lib/LoaderRunner.js:251:2)\n    at /Users/ygm/Documents/learn/frontedStack/Q1.1-vue-loader实现/02-code/node_modules/loader-runner/lib/LoaderRunner.js:224:4\n    at /Users/ygm/Documents/learn/frontedStack/Q1.1-vue-loader实现/02-code/node_modules/webpack/lib/NormalModule.js:834:15");
+
 /***/ })
 
 /******/ 	});
@@ -12135,9 +12062,10 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.runtime.esm-bundler.js");
 /* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue */ "./src/App.vue");
+/* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_App_vue__WEBPACK_IMPORTED_MODULE_1__);
 
 
-(0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)(_App_vue__WEBPACK_IMPORTED_MODULE_1__["default"]).mount('#app');
+(0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)((_App_vue__WEBPACK_IMPORTED_MODULE_1___default())).mount('#app');
 
 })();
 
