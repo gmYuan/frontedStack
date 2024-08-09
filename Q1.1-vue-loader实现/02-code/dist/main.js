@@ -1,4 +1,5 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js":
@@ -7,7 +8,6 @@
   \*********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "EffectScope": () => (/* binding */ EffectScope),
@@ -1299,7 +1299,6 @@ function deferredComputed(getter) {
   \*************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "BaseTransition": () => (/* binding */ BaseTransition),
@@ -9255,7 +9254,6 @@ const compatUtils = (null);
   \***********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "BaseTransition": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.BaseTransition),
@@ -11114,7 +11112,6 @@ const initDirectivesForSSR = () => {
   \*************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "EMPTY_ARR": () => (/* binding */ EMPTY_ARR),
@@ -11785,7 +11782,6 @@ function genPropsAccessExp(name) {
   \**********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "BaseTransition": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.BaseTransition),
@@ -11966,9 +11962,31 @@ const compile = () => {
 /*!*********************!*\
   !*** ./src/App.vue ***!
   \*********************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed: Error: Final loader (./vue-loader/index.js) didn't return a Buffer or String\n    at processResult (/Users/ygm/Documents/learn/frontedStack/Q1.1-vue-loader实现/02-code/node_modules/webpack/lib/NormalModule.js:774:17)\n    at /Users/ygm/Documents/learn/frontedStack/Q1.1-vue-loader实现/02-code/node_modules/webpack/lib/NormalModule.js:860:5\n    at /Users/ygm/Documents/learn/frontedStack/Q1.1-vue-loader实现/02-code/node_modules/loader-runner/lib/LoaderRunner.js:407:3\n    at iterateNormalLoaders (/Users/ygm/Documents/learn/frontedStack/Q1.1-vue-loader实现/02-code/node_modules/loader-runner/lib/LoaderRunner.js:233:10)\n    at iterateNormalLoaders (/Users/ygm/Documents/learn/frontedStack/Q1.1-vue-loader实现/02-code/node_modules/loader-runner/lib/LoaderRunner.js:240:10)\n    at /Users/ygm/Documents/learn/frontedStack/Q1.1-vue-loader实现/02-code/node_modules/loader-runner/lib/LoaderRunner.js:255:3\n    at runSyncOrAsync (/Users/ygm/Documents/learn/frontedStack/Q1.1-vue-loader实现/02-code/node_modules/loader-runner/lib/LoaderRunner.js:137:12)\n    at iterateNormalLoaders (/Users/ygm/Documents/learn/frontedStack/Q1.1-vue-loader实现/02-code/node_modules/loader-runner/lib/LoaderRunner.js:251:2)\n    at /Users/ygm/Documents/learn/frontedStack/Q1.1-vue-loader实现/02-code/node_modules/loader-runner/lib/LoaderRunner.js:224:4\n    at /Users/ygm/Documents/learn/frontedStack/Q1.1-vue-loader实现/02-code/node_modules/webpack/lib/NormalModule.js:834:15");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _App_vue_vue_type_script__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue?vue&type=script */ "./src/App.vue?vue&type=script");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_App_vue_vue_type_script__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/***/ }),
+
+/***/ "./src/App.vue?vue&type=script":
+/*!*************************************!*\
+  !*** ./src/App.vue?vue&type=script ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _App_vue_vue_type_script__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue?vue&type=script */ "./src/App.vue?vue&type=script");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_App_vue_vue_type_script__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 /***/ })
 
@@ -11999,18 +12017,6 @@ throw new Error("Module build failed: Error: Final loader (./vue-loader/index.js
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -12053,19 +12059,17 @@ throw new Error("Module build failed: Error: Final loader (./vue-loader/index.js
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-"use strict";
 /*!*********************!*\
   !*** ./src/main.js ***!
   \*********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.runtime.esm-bundler.js");
 /* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue */ "./src/App.vue");
-/* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_App_vue__WEBPACK_IMPORTED_MODULE_1__);
 
 
-(0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)((_App_vue__WEBPACK_IMPORTED_MODULE_1___default())).mount('#app');
+(0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)(_App_vue__WEBPACK_IMPORTED_MODULE_1__["default"]).mount('#app');
 
 })();
 

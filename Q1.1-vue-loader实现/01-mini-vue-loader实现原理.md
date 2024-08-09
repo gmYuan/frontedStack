@@ -20,6 +20,11 @@ Q1 如何实现mini-vue-loader
 
 
 
+S1 通过vue/scompiler-sfc里的parse方法，分别获取到.vue文件的 template/script/style 块内容
+
+S2 分别把 template/script/style内容，转化为 带有查询参数标识的【文件导入】
+
+S3
 
 
 
