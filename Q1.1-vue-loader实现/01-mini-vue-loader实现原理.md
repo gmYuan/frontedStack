@@ -39,6 +39,10 @@ S4 在pitcherLoader.pitch里
   - 会把所有 解析LoadersPath + resource，拼接为【行内loader资源加载路径】，并通过export导出，作为loader的结果返回
   - 行内loader会中止执行 后续的pre和 normal类型loader，从而避免冗余死循环执行配置文件的loaders
   - 执行【行内loader资源加载路径】时，会第2次执行 `vue-loader`
+
+
+S5 第二次执行vue-loader
+  - 根据【路径查询参数】里的type，通过 SFCCompiler.compileScript获取到descriptor里的script内容，再使用 loaderCtx.callback返回给webpack
  
 
 

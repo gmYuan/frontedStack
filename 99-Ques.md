@@ -31,4 +31,36 @@ const isNotPitcherLoader = loader => loader.path !== __filename
 function genProxyModule(loaderCtx, loaders) {
   return `export {default} from ${inLineRequest}`;
 }
+
+// ?? loader.request
+// ?? "-!" + [...loaderAbsolutePaths, resource].join("!")
+function genRequest(loaderCtx, loaders) {
+  const loaderAbsolutePaths = loaders.map((loader) => loader.request);
+  const resource = loaderCtx.resourcePath + loaderCtx.resourceQuery;
+  // 易错点：拼接方法
+  // return '-!' + loaderAbsolutePaths.join('') + resource
+  return stringifyReqPath(
+    loaderCtx,
+    "-!" + [...loaderAbsolutePaths, resource].join("!")
+  );
+}
+```
+
+
+6 解释下面代码
+
+```js
+// SFCCompiler.compileScrip??
+// loaderCtx.callback??
+function selectBlock(loaderCtx, queryMap, descriptor, scopedId) {
+  if (queryMap.get("type") === "script") {
+    const scriptObj = SFCCompiler.compileScript(descriptor, {
+      id: scopedId,
+    });
+    loaderCtx.callback(null, scriptObj.content);
+    return;
+  }
+}
+
+
 ```
