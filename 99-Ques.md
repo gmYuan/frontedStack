@@ -17,3 +17,18 @@ const pitcherRule = {
       },
     };
 ```
+
+5 解释下面代码
+
+```js
+// loader.path  ??
+// __filename  ??
+const isNotPitcherLoader = loader => loader.path !== __filename
+
+
+
+// ？？export {default} from xxx
+function genProxyModule(loaderCtx, loaders) {
+  return `export {default} from ${inLineRequest}`;
+}
+```

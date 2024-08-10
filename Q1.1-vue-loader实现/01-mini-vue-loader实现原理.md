@@ -27,11 +27,18 @@ S2 分别把 template/script/style内容，转化为 带有查询参数标识的
 S3.1 由于loader返回的结果又导入了resource为 `xxx.vue?vue&type=script`, 所以会再次命中到webpack里的module.rules，再次进入 vue-loader里的处理逻辑
 
 S3.2 在 vue-loader的plugin里，代理增强 原有wepack.config.js里的module.rules，在处理.vue文件的规则的最左边，插入pitcherRule
-  - pitcherRule的匹配规则，是通过 文件路径查询参数(resourceQuery) 匹配的
-  - 由于第一次导入的 .vue不带有?vue，所以不会命中 pitcherRule，只会执行 vue-loader
-  - 第一次执行完 vue-loader后，由于再次导入的.vue被拼接了?vue，所以会被命中 [pitcherLoader, vueLoader]，而且会先执行 pitcherLoader.pitch （原因需要知道loader的执行顺序机制）
+  - 实际上，plugin的逻辑在插件初始化就会被执行，所以pitcherRule在解析.vue文件之前，就已经被加入到了 .vue的解析规则里了
+
+  - 但是 pitcherRule的匹配规则，是通过 文件路径查询参数(resourceQuery) 匹配的，第一次解析时 导入的.vue文件 不带有?vue，所以不会命中 pitcherRule，只会执行 vue-loader
+
+  - 在第一次执行完 vue-loader后，由于再次导入的.vue文件 被拼接了?vue，所以会被命中 [pitcherLoader, vueLoader]，而且会先执行 pitcherLoader.pitch （利用了loader的执行顺序机制）
 
 
+S4 在pitcherLoader.pitch里
+  - 会获取到 解析.vue文件的 所有Loaders，排除掉pitcherLoader本身从而防止死循环执行
+  - 会把所有 解析LoadersPath + resource，拼接为【行内loader资源加载路径】，并通过export导出，作为loader的结果返回
+  - 行内loader会中止执行 后续的pre和 normal类型loader，从而避免冗余死循环执行配置文件的loaders
+  - 执行【行内loader资源加载路径】时，会第2次执行 `vue-loader`
  
 
 
