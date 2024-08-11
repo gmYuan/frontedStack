@@ -3,6 +3,8 @@
 
 Q1 mini-vue-loader的项目准备工作有哪些
 
+A:
+
 S1 安装依赖和初始化项目
 
 S2 配置webpack.config.js文件
@@ -16,9 +18,9 @@ S3 执行打包
 ## 二 具体实现
 
 
-Q1 如何实现mini-vue-loader
+Q1 如何实现.vue文件里 script部分的解析
 
-
+A:
 
 S1 通过vue/scompiler-sfc里的parse方法，分别获取到.vue文件的 template/script/style 块内容
 
@@ -45,6 +47,14 @@ S5 第二次执行vue-loader
   - 根据【路径查询参数】里的type，通过 SFCCompiler.compileScript获取到descriptor里的script内容，再使用 loaderCtx.callback返回给webpack
  
 
+--------------------------------------------------------
+Q2 如何实现.vue文件里 template部分的解析
+
+A:
+
+S1 通过vue/scompiler-sfc里的parse方法，分别获取到.vue文件的 template/script/style 块内容
+
+S2 
 
 
 
