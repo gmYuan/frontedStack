@@ -17,16 +17,18 @@ pitcherLoader.pitch = function () {
   const query = new URLSearchParams(loaderCtx.resourceQuery.slice(1));
 
   // S2 返回【export导出 行内loader资源加载路径】
-  return genProxyModule(loaderCtx, loaders);
+  return genProxyModule(loaderCtx, loaders, query.get("type") !== "template");
 };
 
-function genProxyModule(loaderCtx, loaders) {
+function genProxyModule(loaderCtx, loaders, exportDefault = true) {
   const inLineRequest = genRequest(loaderCtx, loaders);
   console.log(
     "--------genProxyModule--------",
     `export {default} from ${inLineRequest}`
   );
-  return `export {default} from ${inLineRequest}`;
+  return exportDefault
+    ? `export {default} from ${inLineRequest}`
+    : `export * from ${inLineRequest}`;
 }
 
 function genRequest(loaderCtx, loaders) {

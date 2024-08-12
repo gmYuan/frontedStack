@@ -39,9 +39,9 @@ function loader(source) {
     const query = `?vue&type=template&id=${id}`;
     const requestPath = stringifyReqPath(loaderCtx, resourcePath + query);
     code.push(`import {render} from ${requestPath}`);
+    code.push(`script.render = render`);
   }
 
-  code.push(`script.render = render`);
   code.push(`export default script`);
   console.log("code----------", code.join("\n"));
   return code.join("\n");

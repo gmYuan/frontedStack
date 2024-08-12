@@ -54,7 +54,8 @@ A:
 
 S1 通过vue/scompiler-sfc里的parse方法，分别获取到.vue文件的 template/script/style 块内容
 
-S2 
+S2 把 template内容，转化为 带有查询参数标识的【import文件导入】，并作为loader的结果返回
+  - template需要导入render，并挂载在导出的script上
 
 
 

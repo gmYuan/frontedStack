@@ -2,14 +2,23 @@ class VueLoaderPlugin {
   apply(compiler) {
     const rules = compiler.options.module.rules;
     const pitcherRule = {
-      loader: require.resolve("./pitcher.js"),
+      loader: require.resolve("./pitcher"),
       resourceQuery: (query) => {
         if (!query) return false;
         let parsed = new URLSearchParams(query.slice(1));
         return parsed.get("vue") !== null;
       },
     };
-    compiler.options.module.rules = [pitcherRule, ...rules];
+    const templateRule = {
+      loader: require.resolve("./templateLoader"),
+      resourceQuery: (query) => {
+        if (!query) return false;
+        let parsed = new URLSearchParams(query.slice(1));
+        return parsed.get("vue") !== null && parsed.get("type") === "template";
+      },
+    };
+
+    compiler.options.module.rules = [pitcherRule, templateRule, ...rules];
   }
 }
 
