@@ -1,4 +1,4 @@
-const { VueLoaderPlugin } = require("./vue-loader");
+const {VueLoaderPlugin} = require("./vue-loader");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 const path = require("path");
@@ -24,10 +24,10 @@ module.exports = {
         // loader: 'vue-loader',
         loader: path.resolve(__dirname, "vue-loader"),
       },
-      // {
-      //   test: /\.css$/,
-      //   use: ["style-loader", "css-loader"],
-      // },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
     ],
   },
   plugins: [

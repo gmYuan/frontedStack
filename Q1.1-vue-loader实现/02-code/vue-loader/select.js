@@ -16,6 +16,13 @@ function selectBlock(loaderCtx, queryMap, descriptor, scopedId) {
     loaderCtx.callback(null, templateObj.content);
     return;
   }
+
+  // 处理style段，用于传递内容给 后续克隆的cssLoader、styleLoader等loader
+  if (queryMap.get("type") === "style") {
+    const styleObj = descriptor.styles[Number(queryMap.get('index'))];
+    loaderCtx.callback(null, styleObj.content);
+    return;
+  }
 }
 
 exports.selectBlock = selectBlock;

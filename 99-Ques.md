@@ -63,4 +63,26 @@ function selectBlock(loaderCtx, queryMap, descriptor, scopedId) {
 }
 ```
 
-7 
+7 解释下面代码
+```js
+
+// script.render = render ??
+// import ${requestPath} ??
+
+// S2.2 把 template内容转化为 带有查询参数标识的【文件导入】
+if (template) {
+  const query = `?vue&type=template&id=${id}`;
+  const requestPath = stringifyReqPath(loaderCtx, resourcePath + query);
+  code.push(`import {render} from ${requestPath}`);
+  code.push(`script.render = render`);
+}
+
+// S2.3 把 style内容【逐个】转化为 带有查询参数标识的【文件导入】
+if (styles.length > 0) {
+  styles.forEach((style, idx) => {
+    const query = `?vue&type=style&index=${idx}&id=${id}`;
+    const requestPath = stringifyReqPath(loaderCtx, resourcePath + query)
+    code.push(`import ${requestPath}`);
+  })
+}
+```

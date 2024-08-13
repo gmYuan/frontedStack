@@ -27,21 +27,31 @@ function loader(source) {
   // 第1次执行vue-loader的命中逻辑
   // S1 通过compiler.parse分类别 获取.vue文件的 template/script/style内容
   let code = [];
-  const { script, template } = descriptor;
+  const { script, template,styles } = descriptor;
   // S2.1 把 script内容转化为 带有查询参数标识的【文件导入】
   if (script) {
-    const query = `?vue&type=script&id=${id}`;
+    const query = `?vue&type=script&id=${id}&lang=js`;
     const requestPath = stringifyReqPath(loaderCtx, resourcePath + query);
     code.push(`import script from ${requestPath}`);
   }
   // S2.2 把 template内容转化为 带有查询参数标识的【文件导入】
   if (template) {
-    const query = `?vue&type=template&id=${id}`;
+    const query = `?vue&type=template&id=${id}&lang=js`;
     const requestPath = stringifyReqPath(loaderCtx, resourcePath + query);
     code.push(`import {render} from ${requestPath}`);
     code.push(`script.render = render`);
   }
 
+  // S2.3 把 style内容【逐个】转化为 带有查询参数标识的【文件导入】
+  if (styles.length > 0) {
+    styles.forEach((style, idx) => {
+      const query = `?vue&type=style&index=${idx}&id=${id}&lang=css`;
+      const requestPath = stringifyReqPath(loaderCtx, resourcePath + query)
+      code.push(`import ${requestPath}`);
+    })
+  }
+
+  // 拼接出 第一轮的返回内容
   code.push(`export default script`);
   console.log("code----------", code.join("\n"));
   return code.join("\n");
