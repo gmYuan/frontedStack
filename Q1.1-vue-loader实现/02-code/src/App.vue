@@ -6,7 +6,7 @@
 console.log('App');
 </script>
 
-<style>
+<style scoped>
 .title {
   color: red;
 }

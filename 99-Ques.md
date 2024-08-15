@@ -86,3 +86,19 @@ if (styles.length > 0) {
   })
 }
 ```
+
+
+8 hash-sum？？
+
+```js
+const hash = require("hash-sum");
+
+```
+
+9 正则含义  /css-loader/.test(loader.path)???
+ require.resolve('./stylePostLoader') ???
+```js
+const isCSSLoader = loader => /css-loader/.test(loader.path)
+
+const stylePostLoaderPath = require.resolve('./stylePostLoader');
+```
