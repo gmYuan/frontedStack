@@ -8,6 +8,7 @@ function loader(source) {
   let loaderCtx = this;
   const { resourcePath, resourceQuery, context } = loaderCtx;
   const { descriptor } = compiler.parse(source);
+  const id = hash(resourcePath);
   // console.log("111-----", resourcePath);
   // console.log("222-----", resourceQuery);
   // console.log("333-----", context);
@@ -28,7 +29,6 @@ function loader(source) {
   const { script, template,styles } = descriptor;
 
   // 用于css的scoped==> .title[data-v-id]
-  const id = hash(resourcePath);
   const hasScoped = styles.some((style) => style.scoped);
 
   // S2.1 把 script内容转化为 带有查询参数标识的【文件导入】
