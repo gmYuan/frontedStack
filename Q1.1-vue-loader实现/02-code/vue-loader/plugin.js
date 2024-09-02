@@ -1,9 +1,14 @@
 const ruleResource = (queryMap, resource) => `${resource}.${queryMap.get('lang')}`
 class VueLoaderPlugin {
+
+  constructor() {
+    console.log('VueLoaderPlugin constructor')
+  }
   apply(compiler) {
     const rules = compiler.options.module.rules;
     // pitcherRule
     const pitcherRule = {
+      // Q1
       loader: require.resolve("./pitcher"),
       resourceQuery: (query) => {
         if (!query) return false;
