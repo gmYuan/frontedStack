@@ -216,16 +216,18 @@ export {default} from "-!../node_modules/style-loader/dist/cjs.js!../node_module
     - 10.3.2: 后续会继续传递给 css-loader/ style-loader/...... 处理
 
 
-具体代码，参见 [mini-vue-loader](todo)
-
----------------------------------------------------------------------------------
-Q3 todo
-
-A:
+具体代码，参见 [mini-vue-loader](https://github.com/gmYuan/frontedStack/tree/main/Q1.1-vue-loader%E5%AE%9E%E7%8E%B0/02-code)
 
 
+## 三 阅读文档
 
+[01 Webpack案例—— vue-loader原理分析](https://juejin.cn/post/6937125495439900685)
 
+[02 一文读懂 vue-loader 原理](https://juejin.cn/post/7028410359207690247)
+
+[03 深入vue-loader原理](https://juejin.cn/post/6994468137584295973)
+
+[04 vue-loader原理流程真～～解析](https://juejin.cn/post/7013991508281917454)
 
 
 

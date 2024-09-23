@@ -1,30 +1,30 @@
 # 记录待学习内容
 
-1 -save 和 —save-dev的区别和使用场景
 
 2 @vue/compiler-sfc的常见API和作用
 
 3 loaderContext的相关API功能了解
 
-4 moule.rules里的 loader: require.resolve('./pitcher.js') 写法
+
+
+
+
+10 导出区别 ??
 ```js
-const pitcherRule = {
-      loader: require.resolve("./pitcher.js"),
-      resourceQuery: (query) => {
-        if (!query) return false;
-        let parsed = new URLSearchParams(query.slice(1));
-        return parsed.get("vue") !== null;
-      },
-    };
+// 导出方式1
+export * from xxx
+
+// 导出方式2
+export {default} from xxx
 ```
+
+
+
+
 
 5 解释下面代码
 
 ```js
-// loader.path  ??
-// __filename  ??
-const isNotPitcherLoader = loader => loader.path !== __filename
-
 
 
 // ？？export {default} from xxx
@@ -96,18 +96,12 @@ const hash = require("hash-sum");
 ```
 
 9 正则含义  /css-loader/.test(loader.path)???
- require.resolve('./stylePostLoader') ???
+
 ```js
 const isCSSLoader = loader => /css-loader/.test(loader.path)
 
 const stylePostLoaderPath = require.resolve('./stylePostLoader');
 ```
 
-10 导出区别 ??
 
-```js
-export * from xxx
-export {default} from xxx
-```
 
-11 loaders里的 require.resolve('./stylePostLoader'); ？？？
