@@ -19,7 +19,7 @@
         //# sourceURL=webpack://1.1-webpack-base/./src/index.js?'
       );
     },
-  };
+  // };
   /************************************************************************/
 
   var __webpack_module_cache__ = {};
