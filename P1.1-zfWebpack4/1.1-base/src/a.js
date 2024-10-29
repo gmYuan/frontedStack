@@ -1,1 +1,0 @@
-module.exports = '我是a.js导出内容';
