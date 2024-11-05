@@ -1,0 +1,1 @@
+{"version":3,"file":"main.js","mappings":";AAAA,8B","sources":["webpack://zhufengwebpackoptimize/./src/index.js"],"sourcesContent":["console.log('入口文件- index.js');"],"names":[],"sourceRoot":""}
