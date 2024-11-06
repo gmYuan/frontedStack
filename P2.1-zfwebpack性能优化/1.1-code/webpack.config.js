@@ -1,5 +1,6 @@
 const path = require("path");
 const htmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require('webpack');
 
 const bootstrap = path.resolve(__dirname, "node_modules/bootstrap/dist/css/bootstrap.css");
 
@@ -74,10 +75,19 @@ module.exports = smw.wrap({
           {
             test: /\.js$/,
             include: path.resolve(__dirname, "src"),
+            exclude: /node_modules/,
             use: [
+              // 开启多进程打包，需要注意 开启多进程需要引入通信耗时，需要注意避免 ”得不偿失“
+              // {
+              //   loader: 'thread-loader',
+              //   options: {
+              //     workers: 3,
+              //   },
+              // },
               {
                 loader: "babel-loader",
                 options: {
+                  cacheDirectory: true,
                   presets: [
                     "@babel/preset-env",
                   ],
@@ -87,7 +97,7 @@ module.exports = smw.wrap({
           },
           {
             test: /\.css$/,
-            use: [ "logger-loader", "style-loader", "css-loader"],
+            use: [ "cache-loader", "logger-loader", "style-loader", "css-loader"],
           },
           {
             test: /\.less$/,
@@ -122,5 +132,13 @@ module.exports = smw.wrap({
       analyzerMode: "disabled",
       generateStatsFile: true,
     }),
+
+    new webpack.IgnorePlugin({
+      // 资源模块 匹配 
+      resourceRegExp: /^\.\/locale$/,
+      // 上下文目录 匹配
+      contextRegExp: /moment$/,
+    }),
+
   ],
 });

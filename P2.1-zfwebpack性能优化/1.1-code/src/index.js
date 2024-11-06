@@ -11,7 +11,13 @@ console.log(title);
 // import _ from 'Lodash'; 
 // console.log('lodash是--', _);
 
-
 import './index.css';
+
+import moment from 'moment';
+console.log('moment--', moment);
+
+
+
+
 
 console.log('----我是index.js----');
