@@ -34,8 +34,45 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsWebpackplugin = require("optimize-css-assets-webpack-plugin");
 const PurgecssWebpackPlugin = require("purgecss-webpack-plugin");
 
+//文件匹配模式
+const glob = require("glob");
+const PATHS = {
+  src: path.resolve(__dirname, "src"),
+};
+
+// 加载环境变量文件
+const dotenv = require("dotenv");
+
+// 根据不同环境加载对应的环境变量文件
+function loadEnv(mode) {
+  // 按优先级依次加载环境文件
+  const envFiles = [
+    `.env`, // 基础配置
+    `.env.${mode}`, // 环境配置
+    `.env.local`, // 本地配置
+    `.env.${mode}.local`, // 本地环境配置
+  ];
+
+  envFiles.forEach((file) => {
+    if (fs.existsSync(file)) {
+      // override: 允许后面的文件覆盖前面的变量
+      dotenv.config({ path: file, override: true });
+    }
+  });
+}
+
 module.exports = (env) => {
+  loadEnv(env.file);
+  console.log("我是webpack.config.js里的函数参数env----", env);
+
+  console.log(
+    "我是webpack.config.js里的process.env.NODE_ENV----",
+    process.env.NODE_ENV
+  );
   return {
+    // mode: "none",
+    mode: process.env.NODE_ENV === "production" ? "production" : "development",
+
     // devtool: "source-map",
     devtool: "inline-source-map",
 
@@ -58,10 +95,10 @@ module.exports = (env) => {
     },
 
     // 配置 外部依赖 的声明
-    // externals: {
-    //   jquery: "Jquery",
-    //   lodash: "Lodash",
-    // },
+    externals: {
+      jquery: "Jquery",
+      lodash: "Lodash",
+    },
 
     // 配置 自定义loader 的查找规则
     resolveLoader: {
@@ -70,69 +107,10 @@ module.exports = (env) => {
 
     // 压缩JS
     optimization: {
-      // 开启最小化
-      // minimize: true,
-      // // 配置 minimizer数组，
-      // minimizer: [new TerserPlugin()],
-      splitChunks: {
-        // 分割什么加载类型的 模块：async（异步）、initial（同步）、all（所有）
-        chunks: "all",
-        // 分割成的单个chunk的 最小体积（以字节为单位）
-        // 注意 minSize的优先级 > maxSize
-        minSize: 0,
-        // 分割成的单个chunk的 最大体积（以字节为单位）
-        maxSize: 0,
-        // 用于控制分割后剩余 chunk 的最小体积
-        // 它主要用来防止 过小分割的情况
-        minRemainingSize: 0,
-
-        // 指定一个模块被引用 N次时, 才会被分割成单独的chunk
-        minChunks: 2,
-
-        // 限制异步加载时的 最大并行请求数
-        maxAsyncRequests: 30,
-        // 限制入口点（entry point）的最大并行请求数
-        maxInitialRequests: 30,
-
-        // chunk 名称分隔符
-        automaticNameDelimiter: "~",
-        // 强制分割的体积阈值
-        // 当模块大小超过这个值时，会强制进行分割，忽略其他的限制条件
-        // 主要用于处理大模块，确保它们能被分割出去，从而优化加载性能
-        enforceSizeThreshold: 50000,
-        cacheGroups: {
-          defaultVendors: {
-            test: /[\\/]node_modules[\\/]/,
-            // 使用函数来生成更有意义的名称
-            name(module, chunks, cacheGroupKey) {
-              const moduleFileName = module
-                .identifier()
-                .split("/")
-                .reduceRight((item) => item)
-                .replace(/\.[^/.]+$/, "");
-              return `${cacheGroupKey}~${moduleFileName}`;
-            },
-            priority: -10,
-            // 用于控制 是否复用已经存在的chunk
-            // 特别适合处理公共依赖和第三方库
-            reuseExistingChunk: true,
-          },
-          default: {
-            // 这个设置被上面的全局配置覆盖了
-            minChunks: 2,
-            priority: -20,
-            name(module, chunks, cacheGroupKey) {
-              const moduleFileName = module
-                .identifier()
-                .split("/")
-                .reduceRight((item) => item)
-                .replace(/\.[^/.]+$/, "");
-              return `${cacheGroupKey}~${moduleFileName}`;
-            },
-            reuseExistingChunk: true,
-          },
-        },
-      },
+      开启最小化
+      minimize: true,
+      // 配置 minimizer数组，
+      minimizer: [new TerserPlugin()],
     },
 
     entry: {
@@ -149,7 +127,6 @@ module.exports = (env) => {
       // 返回 当前文件所在的目录 的绝对路径
       path: path.resolve(__dirname, "dist"),
       filename: "[name].js",
-      // chunkFilename: '[filename]_[contenthash:4].js',
     },
 
     //oneOf只可能匹配数组中的某一个，找到一个之后就不再继续查找剩下的loader
@@ -249,7 +226,7 @@ module.exports = (env) => {
       new htmlWebpackPlugin({
         template: "./public/index.html",
         filename: "p1.html",
-        chunks: ["p1"], // 向html中注入哪些 bundle
+        chunks: ["p1"],  // 向html中注入哪些 bundle
       }),
 
       new htmlWebpackPlugin({
@@ -305,18 +282,18 @@ module.exports = (env) => {
       }),
 
       // 设置 编译阶段的 全局变量
-      // new webpack.DefinePlugin({
-      //   "process.env": Object.keys(process.env).reduce(
-      //     (env, key) => {
-      //       env[key] = JSON.stringify(process.env[key]);
-      //       return env;
-      //     },
-      //     {
-      //       // 确保 NODE_ENV 一定存在且在对象最前面
-      //       NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-      //     }
-      //   ),
-      // }),
+      new webpack.DefinePlugin({
+        "process.env": Object.keys(process.env).reduce(
+          (env, key) => {
+            env[key] = JSON.stringify(process.env[key]);
+            return env;
+          },
+          {
+            // 确保 NODE_ENV 一定存在且在对象最前面
+            NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+          }
+        ),
+      }),
     ],
   };
 };
