@@ -1,5 +1,4 @@
-珠峰文档资料：
-
+## 珠峰文档资料：
 
 1.1 主要内容：webpack 常见面试题1
 链接：http://www.zhufengpeixun.com/strong/html/109.1.webpack_usage.html
@@ -123,12 +122,6 @@
 
 
 --------------------------------------------------------------------------------
-12.1 主要内容：动态导入 + 懒加载 + 提取公共代码 splitChunks 配置
-链接：http://www.zhufengpeixun.com/strong/html/103.13.splitChunks.html
-
-
-
---------------------------------------------------------------------------------
 13.1 主要内容：sourcemap 配置 + 实现原理
 链接：http://www.zhufengpeixun.com/strong/html/103.14.webpack-sourcemap.html  
 
@@ -192,6 +185,83 @@
 
 
 
+## 一 已完成内容
+
+### 1 基础含义
+
+1 说说你对webpack的理解，它解决了什么问题 <br/>
+
+2.1 如何安装 本地webpack <br/>
+2.2 webpack的 默认最简使用方法 是什么 <br/>
+
+3.1 webpack的 最简核心配置组成 是什么 <br/>
+
+4.1 webpack里 entry的作用 <br/>
+4.2 webpack里 为什么要使用loader，它有哪些作用 <br/>
+4.3 webpack里 为什么要使用plugin，它有哪些作用 <br/>
+
+5.1 webpack 里 Module、Chunk、Bundle、Asset 分别是什么，有什么区别 <br/>
+5.2 Webpack 中的运行时chunk 是什么？在项目工程中， 如何打包和加载这个 运行时chunk <br/>
+
+
+### 2 常见配置
+
+1.1 如何在webpack里 支持 图片/字体 等静态资源 <br/>
+1.2 如何配置把 js、css、html 单独打包成一个文件 <br/>
+
+
+2.1 webpack 如何配 sass，需要配哪些 loader，配 css 需要哪些 loader <br/>
+2.2 webpack 怎么处理内联 css 的 <br/>
+2.3 说一下 webpack 中 css-loader 和 style-loader 的区别，file-loader 和 url-loader 的区别 <br/>
+
+
+### 3 常见配置原理
+
+1.1 css-loader的作用 + css中的路径是如何解析的 + css-loader和file-loader如何一起工作的 <br/>
+
+
+
+### 4 性能优化
+
+#### 前置知识点
+1.1 为什么要有 HtmlWebpackPlugin 插件, 它有什么作用 <br/>
+1.2 如何最简配置 HtmlWebpackPlugin 插件 <br/>
+1.3 如何实现 自动动态配置 多页面应用(MPA) 打包 <br/>
+
+2.1 介绍 SplitChunksPlugin 插件的 常见配置项，它有什么作用 <br/>
+
+
+#### 核心问题
+1.1 什么是 代码分割/打包分离 + 如何实现 代码分割/打包分离/ webpack 分包的方式有哪些  <br/>
+
+
+2.1 什么是多入口的 分模块打包 + Webpack 怎么配置多入口应用/ 如何实现多入口的 分模块打包 <br/>
+2.2 如何实现 第三方库(基础库分离)/ Webpack 抽取公共依赖文件 是怎么配置的 <br/>
+2.3 动态导入的大致实现原理是什么 + 在webpack4之前 如何配置以支持 动态导入 <br/>
+
+
+3.1 说明 JS 进行压缩、合并、打包实现的原理是什么？为什么需要压缩、合并、打包？分别列出一种常用工具或插件 <br/>
+3.2 如何在webpack里进行 代码压缩(压缩HTML /CSS /JS /图片) <br/>
+
+
+4.1 import { Button } from 'antd'，打包的时候只打包 button，分模块加载，是怎么做到的 <br/>
+
+
+## 二 即将/ 当前正处理内容
+
+6.3 import { Button } from 'antd'，打包的时候只打包 button，分模块加载，是怎么做到的
+6.4 A、B 两个条件组件，如何做到 webpack 只打包条件为 true 的组件，false 的组件不打包
+
+
+待开始:
+
+6.5 一个活动项目里包含多个活动，Webpack 如何实现单独打包某个活动
+
+
+
+--------------------------------------------------------------------------------
+## todo
+
 ## 配置与配置实现原理
 
 <!-- todo 问题过于综合/宽泛，放到最后回答 比较合适 -->
@@ -200,27 +270,7 @@
 1.3 Webpack项目中 做过哪些配置
 
 
-4.1 如何配置把 js、css、html 单独打包成一个文件
-4.2 请说明 JavaScript 进行压缩、合并、打包实现的原理是什么？为什么需要压缩、合并、打包？分别列出一种常用工具或插件
 
-
-5.1 一般怎么组织 CSS（Webpack）
-5.2 webpack 怎么处理内联 css 的
-5.3 怎么使用 webpack，将 JS 文件中的 css 提取到单独的样式文件中
-5.4 说下在项目开发你是怎么组织 CSS 的？（Webpack）
-5.5 说一下 webpack 中 css-loader 和 style-loader 的区别，file-loader 和 url-loader 的区别
-5.6 webpack 如何配 sass，需要配哪些 loader，配 css 需要哪些 loader
-5.7 css-loader的作用
-5.8 css中的路径是如何解析的
-5.9 css-loader和file-loader如何一起工作的
-
-
-6.1 webpack 分包的方式有哪些
-6.2 webpack 如何分包/分包机制
-6.3 import { Button } from 'antd'，打包的时候只打包 button，分模块加载，是怎么做到的
-6.4 A、B 两个条件组件，如何做到 webpack 只打包条件为 true 的组件，false 的组件不打包
-6.5 一个活动项目里包含多个活动，Webpack 如何实现单独打包某个活动
-6.6 一个活动项目里包含多个活动，Webpack 如何实现单独打包某个活动
 
 
 7 webpack 中的 externals 作用是什么
@@ -322,7 +372,8 @@
 
 1.2 讲一下 webpack 原理
 
-2 介绍下webpack, 说说webpack的构建流程
+2.1 介绍下webpack, 说说webpack的构建流程
+2.2 webpack 分包机制/分包实现原理
 
 3 Webpack 做了什么？使用 webpack 构建时有无做一些自定义操作？
 
@@ -380,6 +431,14 @@
 5 在项目中有使用jekenis和docker这些吗
 
 6 前端怎么做单元测试
+
+
+## 前端架构
+
+1.1 一般怎么组织 CSS（Webpack）
+
+1.2 说下在项目开发你是怎么组织 CSS 的？（Webpack）
+
 -------------------------------------------------------------
 
 
