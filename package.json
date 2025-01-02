@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "react": "^version_number",
-    "react-dom": "^version_number"
-  },
-  "devDependencies": {}
-} 
