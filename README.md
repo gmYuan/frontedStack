@@ -2,7 +2,7 @@
 
 前端工程化
 
-已完成题目总数: 13题
+已完成题目总数: 15题
 
 
 ## Tag1 webpack基础含义
@@ -23,17 +23,23 @@
 
 [Q6- sass + css配置相关]()
 
-[Q13- Hash相关]()
+[Q13.1- Hash配置相关]()
+
+[Q15.1- 热更新HMR配置 + 优化方法]()
 
 
 
-## Tag3 常见配置原理
+## Tag3 webpack常见配置原理
 
 [Q7- css-loader原理相关]()
 
+[Q11.3- tree shaking实现原理]()
+
+[Q13.2- Hash实现原理]()
 
 
-## Tag4 性能优化
+
+## Tag4 webpack性能优化
 
 [Q8- HtmlWebpackPlugin含义 + 作用 + 配置MPA打包]()
 
@@ -53,10 +59,4 @@
 
 [Q12.2- cdn相关]()
 
-
-
-
-
-## 实践项目关联
-
-待把 p1.1~p2.1拆分出单独的github项目里
+[Q14.1- babel + babel-loader配置使用]()
