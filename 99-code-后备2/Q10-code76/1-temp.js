@@ -1,4 +1,0 @@
-function minWindow(s, t) {
-  
-   
-}

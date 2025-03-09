@@ -1,3 +1,0 @@
-function searchRange(nums, target) {
-  
-}
